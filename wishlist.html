@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Snapback Republic — Wishlist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css"/>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container nav-container">
+            <a href="index.html" class="brand">Snapback <span>Republic</span></a>
+            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+            <nav class="site-nav" data-nav>
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="shop.html" class="nav-link">Shop</a>
+                <a href="wishlist.html" class="nav-link active">Wishlist</a>
+                <a href="cart.html" class="nav-link">Cart</a>
+                <a href="account.html" class="nav-link">Account</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+            <div class="nav-right">
+                <a href="wishlist.html" class="nav-icon" aria-label="Wishlist">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 21s-6.716-4.534-9.193-7.01a5.5 5.5 0 1 1 7.778-7.778L12 5.627l1.415-1.415a5.5 5.5 0 1 1 7.778 7.778C18.716 16.466 12 21 12 21z" fill="currentColor"/></svg>
+                    <span class="badge" id="badge-wishlist">0</span>
+                </a>
+                <a href="cart.html" class="nav-icon" aria-label="Cart">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 4h-2l-1 2h2l3.6 7.59-1.35 2.45A1 1 0 0 0 9.8 18h9.4v-2h-2.22l.9-1.6h2.22a1 1 0 0 0 .9-.55l3-6A1 1 0 0 0 20 6H7.42l-.7-2zM7 20a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm10 0a2 2 0 1 0 .001 3.999A2 2 0 0 0 17 20z" fill="currentColor"/></svg>
+                    <span class="badge" id="badge-cart">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <h1 class="page-title">Wishlist</h1>
+        <div class="products-grid" id="wishlist-grid"></div>
+        <div style="margin:14px 0"><a href="checkout.html" class="btn btn-primary">Checkout</a></div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <p>© <span id="year"></span> Snapback Republic. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <button class="to-top" id="toTop" aria-label="Back to top">▲</button>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/wishlist.js"></script>
+</body>
+</html>
+

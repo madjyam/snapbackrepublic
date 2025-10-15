@@ -1,0 +1,115 @@
+:root{
+  --bg:#0b0b0b;--fg:#f5f5f5;--muted:#bdbdbd;--red:#e11d2e;--card:#121212;--shadow:0 10px 30px rgba(0,0,0,.35)
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--fg)}
+.container{max-width:1200px;margin:0 auto;padding:0 16px}
+a,a:visited{color:var(--fg);text-decoration:none}
+a:hover{color:#fff;text-decoration:none}
+
+/* Header */
+.site-header{position:sticky;top:0;z-index:50;background:rgba(11,11,11,.8);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid #1f1f1f}
+.nav-container{display:flex;align-items:center;justify-content:space-between;min-height:64px}
+.brand{color:var(--fg);text-decoration:none;font-weight:700;letter-spacing:.5px}
+.brand span{color:var(--red)}
+.site-nav{display:flex;gap:16px}
+.nav-link{color:var(--muted);text-decoration:none;padding:10px 12px;border-radius:10px;transition:transform .2s ease, color .2s ease, background .2s ease}
+.nav-link:hover,.nav-link.active{color:var(--fg);background:#161616;transform:translateY(-1px)}
+.nav-toggle{display:none;background:#161616;color:var(--fg);border:1px solid #262626;border-radius:10px;padding:8px 10px}
+
+/* Hero */
+.hero{position:relative;min-height:78vh;display:grid;place-items:center;background:
+  radial-gradient(1000px 500px at 10% 10%, rgba(225,29,46,.15), transparent),
+  radial-gradient(900px 600px at 90% 20%, rgba(255,255,255,.06), transparent),
+  url('images/snapback1.jpeg');
+background-size:cover;background-position:center}
+.hero:after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.45);pointer-events:none}
+.hero-content{position:relative;text-align:center;animation:fadeUp .8s ease both .1s}
+.hero-title{font-size:clamp(32px,6vw,72px);margin:0 0 8px;font-weight:800}
+.hero-title span{color:var(--red)}
+.hero-tagline{margin:0 0 24px;color:var(--muted);font-size:clamp(16px,2.5vw,20px)}
+.btn{display:inline-block;padding:12px 20px;border-radius:12px;border:1px solid #262626;background:#141414;color:#fff;text-decoration:none;transition:transform .15s ease,box-shadow .15s ease,background .15s ease}
+.btn:hover{transform:translateY(-2px) scale(1.02);box-shadow:var(--shadow)}
+.btn-primary{background:var(--red);border-color:transparent}
+
+/* Sections */
+.section-title{font-size:24px;margin:24px 0}
+.products-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+@media(min-width:640px){.products-grid{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:900px){.products-grid{grid-template-columns:repeat(4,1fr)}}
+
+.product-card{background:var(--card);border:1px solid #1e1e1e;border-radius:16px;overflow:hidden;box-shadow:var(--shadow);transform:translateY(8px) scale(.98);opacity:0;transition:transform .35s ease, opacity .35s ease;color:inherit;text-decoration:none;display:block}
+.product-card.visible{transform:translateY(0) scale(1);opacity:1}
+.product-media{position:relative;aspect-ratio:1/1;background:#0f0f0f}
+.product-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s ease}
+.product-card:hover .product-media img{transform:scale(1.05)}
+.product-body{padding:12px 12px 14px}
+.product-name{margin:0 0 6px;font-weight:600}
+.product-price{margin:0 0 10px;color:#e6e6e6}
+.product-actions{display:flex;gap:8px}
+.product-actions .btn{flex:1}
+
+/* Cart */
+.cart-items{display:grid;gap:12px}
+.cart-item{display:grid;grid-template-columns:72px 1fr auto;gap:12px;align-items:center;background:var(--card);border:1px solid #1e1e1e;border-radius:14px;padding:10px;animation:fadeIn .25s ease}
+.cart-item img{width:72px;height:72px;object-fit:cover;border-radius:10px}
+.qty{display:flex;align-items:center;gap:6px}
+.qty button{width:28px;height:28px;border-radius:8px;border:1px solid #262626;background:#151515;color:#fff}
+.cart-summary{margin:20px 0 40px;background:#121212;border:1px solid #1e1e1e;border-radius:14px;padding:16px;display:grid;gap:12px}
+.summary-row{display:flex;justify-content:space-between;color:#e6e6e6}
+
+/* Auth */
+.auth-card{background:var(--card);border:1px solid #1e1e1e;border-radius:18px;padding:16px;max-width:520px;margin:10px auto;box-shadow:var(--shadow);animation:fadeUp .4s ease}
+.tabs{display:flex;gap:8px;margin-bottom:8px}
+.tab{flex:1;padding:10px;border-radius:10px;border:1px solid #262626;background:#131313;color:#ddd}
+.tab.active{background:var(--red);border-color:transparent}
+.auth-form{display:none;grid-template-columns:1fr;gap:10px;transform:translateY(8px);opacity:0;transition:transform .25s ease, opacity .25s ease}
+.auth-form.visible{display:grid;transform:translateY(0);opacity:1}
+.auth-form label{display:grid;gap:6px;font-size:14px}
+.auth-form input{padding:10px;border-radius:10px;border:1px solid #262626;background:#121212;color:#fff}
+
+/* Contact */
+.contact-grid{display:grid;gap:20px}
+@media(min-width:800px){.contact-grid{grid-template-columns:1fr 1fr}}
+.contact .page-title{position:relative;display:inline-block}
+.contact .page-title:after{content:"";display:block;height:3px;background:linear-gradient(90deg,var(--red),transparent);border-radius:2px;margin-top:6px}
+.contact-form,.contact-info{position:relative;background:var(--card);border:1px solid #1e1e1e;border-radius:16px;padding:16px}
+.contact-form:before{content:"";position:absolute;inset:-1px;border-radius:16px;padding:1px;background:conic-gradient(from 140deg at 50% 50%, rgba(225,29,46,.65), rgba(255,255,255,.06), rgba(225,29,46,.35));-webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);-webkit-mask-composite: xor;mask-composite: exclude;pointer-events:none}
+.contact-form label{display:grid;gap:6px;font-size:14px;color:#e8e8e8}
+.contact-form input,.contact-form textarea{padding:12px 12px;border-radius:12px;border:1px solid #262626;background:#0f0f0f;color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.02)}
+.contact-form input::placeholder,.contact-form textarea::placeholder{color:#777}
+.contact-form input:focus,.contact-form textarea:focus{outline:none;border-color:rgba(225,29,46,.6);box-shadow:0 0 0 3px rgba(225,29,46,.18)}
+.contact-form .btn{width:100%;padding:14px 18px;font-weight:600;letter-spacing:.2px;border-radius:12px}
+.form-row{display:grid;gap:12px}
+@media(min-width:640px){.form-row{grid-template-columns:1fr 1fr}}
+.socials{display:flex;gap:10px;margin-top:10px}
+.social{display:inline-grid;place-items:center;width:42px;height:42px;border-radius:12px;background:#141414;color:#fff;text-decoration:none;border:1px solid #262626;transition:transform .15s ease}
+.social:hover{transform:scale(1.06)}
+
+/* Footer */
+.site-footer{border-top:1px solid #1f1f1f;margin-top:40px}
+.footer-inner{display:flex;justify-content:center;padding:18px 0;color:#bcbcbc}
+
+/* Utilities */
+.page-title{margin:18px 0 14px}
+.to-top{position:fixed;right:16px;bottom:16px;width:42px;height:42px;border-radius:50%;border:1px solid #262626;background:#151515;color:#fff;opacity:0;pointer-events:none;transition:opacity .2s ease, transform .2s ease}
+.to-top.show{opacity:1;pointer-events:auto}
+.to-top:hover{transform:translateY(-2px)}
+
+/* Mobile Nav */
+@media(max-width:860px){
+  .site-nav{position:fixed;inset:64px 12px auto 12px;flex-direction:column;background:#111;border:1px solid #1e1e1e;border-radius:16px;padding:12px;transform:translateY(-20px);opacity:0;pointer-events:none;transition:transform .2s ease, opacity .2s ease}
+  .site-nav.open{transform:translateY(0);opacity:1;pointer-events:auto}
+  .nav-toggle{display:inline-block}
+}
+
+/* Nav icons and badges */
+.nav-right{display:flex;align-items:center;gap:10px}
+.nav-icon{position:relative;display:inline-grid;place-items:center;width:42px;height:42px;border-radius:12px;border:1px solid #262626;background:#151515;color:#fff;text-decoration:none}
+.badge{position:absolute;top:-6px;right:-6px;min-width:20px;height:20px;padding:0 6px;border-radius:999px;background:var(--red);color:#fff;font-size:12px;display:grid;place-items:center}
+
+/* Animations */
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
